@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>Nawigacja</title>
+</head>
+<body>
+    <h1>Witamy!</h1>
+    <p>Twoja lokalizacja restauracji: <%= location %></p>
+    <nav>
+        <a href="/admin1">Admin Site 1</a>
+        <a href="/admin2">Admin Site 2</a>
+    </nav>
+    <form action="/logout" method="POST">
+        <button type="submit">Wyloguj się</button>
+    </form>
+</body>
+</html>

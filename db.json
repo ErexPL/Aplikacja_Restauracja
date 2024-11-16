@@ -1,0 +1,19 @@
+{
+    "employees": [
+      {
+        "id": 1,
+        "firstName": "Dawid",
+        "lastName": "Zyś",
+        "email": "zys.dawid@gmail.com",
+        "restaurantLocation": "Śródmieście"
+      },
+      {
+        "id": 2,
+        "firstName": "Anna",
+        "lastName": "Nowak",
+        "email": "anna.nowak@example.com",
+        "restaurantLocation": "Centrum"
+      }
+    ]
+  }
+  
