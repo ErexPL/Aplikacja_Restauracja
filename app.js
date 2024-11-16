@@ -5,6 +5,8 @@ const path = require('path');
 const session = require('express-session');
 const nodemailer = require('nodemailer');
 
+require('dotenv').config();
+
 const app = express();
 const PORT = 3000;
 
@@ -97,17 +99,17 @@ app.post('/verify', (req, res) => {
     }
 });
 
-app.get('/admin1', (req, res) => {
+app.get('/reservations', (req, res) => {
     if (req.session.loggedIn) {
-        res.render('admin1');
+        res.render('reservations');
     } else {
         res.redirect('/');
     }
 });
 
-app.get('/admin2', (req, res) => {
+app.get('/admin', (req, res) => {
     if (req.session.loggedIn) {
-        res.render('admin2');
+        res.render('admin');
     } else {
         res.redirect('/');
     }
