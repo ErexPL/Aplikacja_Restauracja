@@ -2,16 +2,24 @@
 <html lang="pl">
 <head>
     <title>Nawigacja</title>
+    <link rel="stylesheet" href="/css/nav.css">
 </head>
 <body>
-    <h1>Witamy!</h1>
-    <p>Twoja lokalizacja restauracji: <%= location %></p>
-    <nav>
-        <a href="/reservations">Lista Rezerwacji</a>
-        <a href="/admin">Panel Admina</a>
-    </nav>
-    <form action="/logout" method="POST">
-        <button type="submit">Wyloguj się</button>
-    </form>
+    <div class="container">
+        <div class="content">
+            <h1>Witamy!</h1>
+            <p>Twoja lokalizacja restauracji: <%= location %></p>
+            <nav>
+                <a href="/reservations">Lista Rezerwacji</a>
+                <a href="/admin">Panel Admina</a>
+            </nav>
+            <form action="/logout" method="POST">
+                <button type="submit">Wyloguj się</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Restauracja. Wszelkie prawa zastrzeżone.</p>
+    </footer>
 </body>
 </html>
