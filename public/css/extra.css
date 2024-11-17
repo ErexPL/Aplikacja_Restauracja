@@ -1,0 +1,124 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url("../img/bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    border-bottom: 2px solid #e74c3c;
+}
+
+header .logo {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+header h1 {
+    font-size: 28px;
+    color: #c0392b;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+header .tagline {
+    font-size: 14px;
+    color: #555;
+    margin-left: 10px;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+h1 {
+    color: #c0392b;
+    margin-bottom: 20px;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #34495e;
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus {
+    border-color: #e74c3c;
+    outline: none;
+}
+
+nav {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    color: #555;
+    border-top: 2px solid #e74c3c;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 20px;
+    }
+
+    form, .content {
+        width: 95%;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
