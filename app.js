@@ -68,7 +68,12 @@ app.post('/login', (req, res) => {
 
         res.redirect('/verify');
     } else {
-        res.status(401).send('Nieprawidłowe dane.');
+        res.send(`
+            <script>
+              alert('Nieprawidłowe dane. Spróbuj ponownie.');
+              window.location.href = '/';
+            </script>
+          `);
     }
 });
 
@@ -95,7 +100,12 @@ app.post('/verify', (req, res) => {
         req.session.loggedIn = true;
         res.redirect('/');
     } else {
-        res.status(401).send('Nieprawidłowy kod weryfikacyjny.');
+        res.send(`
+            <script>
+              alert('Nieprawidłowy kod weryfikacyjny. Spróbuj ponownie.');
+              window.location.href = '/';
+            </script>
+          `);
     }
 });
 

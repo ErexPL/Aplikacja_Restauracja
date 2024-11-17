@@ -2,13 +2,16 @@
 <html lang="pl">
 <head>
     <title>Weryfikacja</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Weryfikacja kodu</h1>
-    <form action="/verify" method="POST">
-        <label for="code">Kod weryfikacyjny:</label>
-        <input type="text" id="code" name="code" required><br>
-        <button type="submit">Zweryfikuj</button>
-    </form>
+    <div class="container">
+        <form action="/verify" method="POST">
+            <h1>Weryfikacja kodu</h1>
+            <label for="code">Kod weryfikacyjny:</label>
+            <input type="number" id="code" name="code" required><br>
+            <button type="submit">Zweryfikuj</button>
+        </form>
+    </div>
 </body>
 </html>
