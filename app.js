@@ -37,7 +37,7 @@ const readDB = () => {
 
 app.get('/', (req, res) => {
     if (req.session.loggedIn) {
-        res.render('nav', { location: req.session.employee.restaurantLocation });
+        res.render('nav');
     } else {
         res.render('login');
     }
@@ -64,7 +64,11 @@ app.post('/login', (req, res) => {
         });
 
         req.session.verificationCode = verificationCode;
-        req.session.employee = employee;
+        req.session.employee = {
+            firstName: employee.firstName,
+            lastName: employee.lastName,
+            email: employee.email
+        };
 
         res.redirect('/verify');
     } else {
