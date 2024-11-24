@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>Rezerwacja - GastroMania</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/extra.css">
+    <link rel="stylesheet" href="/css/reservation-form.css">
+</head>
+<body>
+    <header>
+        <img src="/img/logo.jpg" alt="GastroMania Logo" class="logo">
+        <h1>GastroMania</h1>
+    </header>
+    <div class="container">
+        <form id="reservationForm" action="/make-reservation" method="POST">
+            <div class="form-container">
+                <div class="form-column">
+                    <h2>Dane rezerwacji</h2>
+                    <div class="form-group">
+                        <label for="firstName">Imię:</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Nazwisko:</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Telefon:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Data:</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time">Godzina:</label>
+                        <select id="time" name="time" required>
+                            <option value="">Wybierz godzinę</option>
+                            <option value="12:00">12:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="18:00">18:00</option>
+                            <option value="20:00">20:00</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="guests">Liczba gości:</label>
+                        <select id="guests" name="guests" required>
+                            <option value="">Wybierz liczbę gości</option>
+                            <option value="1">1 osoba</option>
+                            <option value="2">2 osoby</option>
+                            <option value="3">3 osoby</option>
+                            <option value="4">4 osoby</option>
+                            <option value="5">5 osób</option>
+                            <option value="6">6 osób</option>
+                            <option value="7">7 osób</option>
+                            <option value="8">8 osób</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-column">
+                    <h2>Wybór stolika</h2>
+                    <div class="tables-section">
+                        <div id="tableMap" class="table-map"></div>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" id="tableId" name="tableId">
+            <button type="submit">Zarezerwuj stolik</button>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2024 GastroMania. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+    <script src="/js/reservation-form.js"></script>
+</body>
+</html>

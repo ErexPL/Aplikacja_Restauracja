@@ -129,6 +129,104 @@ app.get('/admin', (req, res) => {
     }
 });
 
+app.get('/reservation-form', (req, res) => {
+    res.render('reservation-form');
+});
+
+app.get('/api/available-tables', (req, res) => {
+    try {
+        const db = readDB();
+        const { date, time, guests } = req.query;
+        
+        const availableTables = db.tables.map(table => ({
+            id: table.id,
+            capacity: table.capacity,
+            section: table.section,
+            available: table.capacity >= parseInt(guests) && 
+                      !db.reservations.some(r => 
+                          r.date === date && 
+                          r.time === time && 
+                          r.tableId === table.id
+                      )
+        }));
+
+        res.json(availableTables);
+    } catch (error) {
+        res.status(500).json({ error: 'Błąd podczas pobierania dostępnych stolików' });
+    }
+});
+
+app.post('/make-reservation', (req, res) => {
+    try {
+        const db = readDB();
+        const { firstName, lastName, email, phone, date, time, guests, tableId } = req.body;
+
+        if (!tableId) {
+            throw new Error('Proszę wybrać stolik');
+        }
+
+        const table = db.tables.find(t => t.id === parseInt(tableId));
+        const isTableBooked = db.reservations.some(r => 
+            r.date === date && 
+            r.time === time && 
+            r.tableId === parseInt(tableId)
+        );
+
+        if (!table || isTableBooked || table.capacity < parseInt(guests)) {
+            throw new Error('Wybrany stolik nie jest już dostępny');
+        }
+
+        const newReservation = {
+            id: Date.now(),
+            firstName,
+            lastName,
+            email,
+            phone,
+            date,
+            time,
+            guests: parseInt(guests),
+            tableId: parseInt(tableId)
+        };
+
+        db.reservations.push(newReservation);
+
+        transporter.sendMail({
+            from: process.env.EMAIL_USER,
+            to: email,
+            subject: 'Potwierdzenie rezerwacji - GastroMania',
+            text: `
+                Dziękujemy za dokonanie rezerwacji!
+                
+                Szczegóły rezerwacji:
+                Imię i nazwisko: ${firstName} ${lastName}
+                Data: ${date}
+                Godzina: ${time}
+                Liczba gości: ${guests}
+                Numer stolika: ${tableId}
+                
+                Pozdrawiamy,
+                Zespół GastroMania
+            `
+        });
+
+        fs.writeFileSync('db.json', JSON.stringify(db, null, 2));
+
+        res.send(`
+            <script>
+                alert('Rezerwacja została przyjęta. Szczegóły zostały wysłane na podany adres email.');
+                window.location.href = '/';
+            </script>
+        `);
+    } catch (error) {
+        res.send(`
+            <script>
+                alert('${error.message}');
+                window.history.back();
+            </script>
+        `);
+    }
+});
+
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });

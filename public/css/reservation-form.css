@@ -1,0 +1,221 @@
+.container {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    min-height: calc(100vh - 160px);
+}
+
+form {
+    background-color: rgba(255, 255, 255, 0.95);
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+    height: 600px;
+}
+
+.form-column {
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #e1e1e1;
+    display: flex;
+    flex-direction: column;
+    background: white;
+}
+
+h2 {
+    color: #c0392b;
+    font-size: 22px;
+    margin: 0 0 25px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e74c3c;
+}
+
+.form-group {
+    margin-bottom: 18px;
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 15px;
+    align-items: center;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #34495e;
+}
+
+.form-group input[type="date"],
+.form-group input[type="tel"],
+.form-group select {
+    width: 200px;
+    padding: 12px;
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #e74c3c;
+    outline: none;
+}
+
+.tables-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 0;
+}
+
+.table-map {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.section {
+    padding: 15px;
+    border-radius: 8px;
+    background: #f8f9fa;
+    border: 1px solid #e1e1e1;
+}
+
+.section h3 {
+    color: #34495e;
+    margin: 0 0 12px 0;
+    font-size: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e74c3c;
+}
+
+.tables {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 8px;
+}
+
+.table {
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    padding: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.table span:first-child {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 3px;
+}
+
+.table.available {
+    background: linear-gradient(to bottom, #34d399, #2ecc71);
+    color: white;
+}
+
+.table.available:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(46, 204, 113, 0.3);
+}
+
+.table.unavailable {
+    background: linear-gradient(to bottom, #f87171, #e74c3c);
+    color: white;
+    opacity: 0.75;
+}
+
+.table.selected {
+    position: relative;
+    box-shadow: 0 0 0 3px #3498db, 0 4px 8px rgba(52, 152, 219, 0.3);
+}
+
+.table.selected:hover {
+    transform: none;
+    box-shadow: 0 0 0 3px #3498db, 0 4px 8px rgba(52, 152, 219, 0.3);
+}
+
+.table.selected::after {
+    content: '✓';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #3498db;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+button[type="submit"] {
+    background-color: #c0392b;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #e74c3c;
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .container {
+        padding: 10px;
+    }
+    
+    form {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    .form-group {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+
+    .form-group input[type="date"],
+    .form-group input[type="tel"],
+    .form-group select {
+        width: 100%;
+    }
+}
