@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
     <title>Nawigacja - Luminaire</title>
-    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/extra.css">
 </head>
 <body>
@@ -14,16 +14,14 @@
         <a href="/" class="back-button">Powrót</a>
     </div>
     <div class="container">
-        <div class="content">
-            <h1>Witamy!</h1>
-            <nav>
-                <a href="/reservations">Lista Rezerwacji</a>
-                <a href="/admin">Panel Admina</a>
+        <form class="nav-content">
+            <h1>Panel Pracownika</h1>
+            <nav class="nav-buttons">
+                <a href="/reservations" class="nav-button">Lista Rezerwacji</a>
+                <a href="/admin" class="nav-button">Panel Admina</a>
             </nav>
-            <form action="/logout" method="POST">
-                <button type="submit">Wyloguj się</button>
-            </form>
-        </div>
+            <button type="submit" formaction="/logout" formmethod="POST">Wyloguj się</button>
+        </form>
     </div>
     <footer>
         <div class="footer-content">

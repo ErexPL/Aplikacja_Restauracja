@@ -106,7 +106,7 @@ app.post('/verify', (req, res) => {
 
     if (parseInt(code) === req.session.verificationCode) {
         req.session.loggedIn = true;
-        res.redirect('/nav');
+        res.redirect('/login');
     } else {
         res.send(`
             <script>
