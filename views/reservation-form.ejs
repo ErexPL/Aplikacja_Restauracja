@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <title>Rezerwacja - GastroMania</title>
+    <title>Rezerwacja - Luminaire</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/extra.css">
     <link rel="stylesheet" href="/css/reservation-form.css">
 </head>
 <body>
     <header>
-        <img src="/img/logo.jpg" alt="GastroMania Logo" class="logo">
-        <h1>GastroMania</h1>
+        <img src="/img/logo.jpg" alt="Luminaire Logo" class="logo">
+        <h1>Luminaire</h1>
     </header>
+    <div class="back-button-container">
+        <a href="/" class="back-button">Powrót</a>
+    </div>
     <div class="container">
         <form id="reservationForm" action="/make-reservation" method="POST">
             <div class="form-container">
@@ -20,27 +23,22 @@
                         <label for="firstName">Imię:</label>
                         <input type="text" id="firstName" name="firstName" required>
                     </div>
-
                     <div class="form-group">
                         <label for="lastName">Nazwisko:</label>
                         <input type="text" id="lastName" name="lastName" required>
                     </div>
-
                     <div class="form-group">
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email" required>
                     </div>
-
                     <div class="form-group">
                         <label for="phone">Telefon:</label>
                         <input type="tel" id="phone" name="phone" required>
                     </div>
-
                     <div class="form-group">
                         <label for="date">Data:</label>
                         <input type="date" id="date" name="date" required>
                     </div>
-
                     <div class="form-group">
                         <label for="time">Godzina:</label>
                         <select id="time" name="time" required>
@@ -52,7 +50,6 @@
                             <option value="20:00">20:00</option>
                         </select>
                     </div>
-
                     <div class="form-group">
                         <label for="guests">Liczba gości:</label>
                         <select id="guests" name="guests" required>
@@ -68,7 +65,6 @@
                         </select>
                     </div>
                 </div>
-
                 <div class="form-column">
                     <h2>Wybór stolika</h2>
                     <div class="tables-section">
@@ -81,7 +77,32 @@
         </form>
     </div>
     <footer>
-        <p>&copy; 2024 GastroMania. Wszelkie prawa zastrzeżone.</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Luminaire</h3>
+                <p>Restauracja Luminaire to wyjątkowe miejsce w sercu Warszawy, gdzie tradycyjna kuchnia spotyka się z nowoczesnymi inspiracjami. Nasze dania to połączenie najwyższej jakości składników z kunsztem kulinarnym naszych szefów kuchni.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Kontakt</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📍</span>
+                        ul. Przykładowa 123, 00-000 Warszawa
+                    </div>
+                    <div class="contact-item">
+                        <span>📞</span>
+                        +48 123 456 789
+                    </div>
+                    <div class="contact-item">
+                        <span>✉️</span>
+                        kontakt@luminaire.pl
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Luminaire. Wszelkie prawa zastrzeżone.</p>
+        </div>
     </footer>
     <script src="/js/reservation-form.js"></script>
 </body>

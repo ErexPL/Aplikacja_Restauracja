@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <title>Logowanie - GastroMania</title>
+    <title>Logowanie - Luminaire</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/extra.css">
 </head>
 <body>
     <header>
-        <img src="/img/logo.jpg" alt="GastroMania Logo" class="logo">
-        <h1>GastroMania</h1>
+        <img src="/img/logo.jpg" alt="Luminaire Logo" class="logo">
+        <h1>Luminaire</h1>
     </header>
+    <div class="back-button-container">
+        <a href="/" class="back-button">Powrót</a>
+    </div>
     <div class="container">
         <form action="/login" method="POST">
             <h1>Logowanie pracownika</h1>
@@ -23,7 +26,32 @@
         </form>
     </div>
     <footer>
-        <p>&copy; 2024 GastroMania. Wszelkie prawa zastrzeżone.</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Luminaire</h3>
+                <p>Restauracja Luminaire to wyjątkowe miejsce w sercu Warszawy, gdzie tradycyjna kuchnia spotyka się z nowoczesnymi inspiracjami. Nasze dania to połączenie najwyższej jakości składników z kunsztem kulinarnym naszych szefów kuchni.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Kontakt</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📍</span>
+                        ul. Przykładowa 123, 00-000 Warszawa
+                    </div>
+                    <div class="contact-item">
+                        <span>📞</span>
+                        +48 123 456 789
+                    </div>
+                    <div class="contact-item">
+                        <span>✉️</span>
+                        kontakt@luminaire.pl
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Luminaire. Wszelkie prawa zastrzeżone.</p>
+        </div>
     </footer>
 </body>
 </html>

@@ -36,6 +36,10 @@ const readDB = () => {
 };
 
 app.get('/', (req, res) => {
+    res.render('home');
+});
+
+app.get('/login', (req, res) => {
     if (req.session.loggedIn) {
         res.render('nav');
     } else {
@@ -102,7 +106,7 @@ app.post('/verify', (req, res) => {
 
     if (parseInt(code) === req.session.verificationCode) {
         req.session.loggedIn = true;
-        res.redirect('/');
+        res.redirect('/nav');
     } else {
         res.send(`
             <script>
@@ -193,7 +197,7 @@ app.post('/make-reservation', (req, res) => {
         transporter.sendMail({
             from: process.env.EMAIL_USER,
             to: email,
-            subject: 'Potwierdzenie rezerwacji - GastroMania',
+            subject: 'Potwierdzenie rezerwacji - Luminaire',
             text: `
                 Dziękujemy za dokonanie rezerwacji!
                 
@@ -205,7 +209,7 @@ app.post('/make-reservation', (req, res) => {
                 Numer stolika: ${tableId}
                 
                 Pozdrawiamy,
-                Zespół GastroMania
+                Zespół Luminaire
             `
         });
 
