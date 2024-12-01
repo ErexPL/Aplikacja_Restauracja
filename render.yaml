@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: "luminaire-restaurant"
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: "EMAIL_USER"
+        sync: false
+      - key: "EMAIL_PASS"
+        sync: false
