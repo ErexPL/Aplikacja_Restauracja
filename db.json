@@ -1,0 +1,146 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "firstName": "Dawid",
+      "lastName": "Zyś",
+      "email": "zys.dawid@gmail.com"
+    },
+    {
+      "id": 2,
+      "firstName": "Anna",
+      "lastName": "Nowak",
+      "email": "anna.nowak@example.com"
+    }
+  ],
+  "tables": [
+    {
+      "id": 1,
+      "capacity": 2,
+      "section": "window"
+    },
+    {
+      "id": 2,
+      "capacity": 4,
+      "section": "window"
+    },
+    {
+      "id": 3,
+      "capacity": 2,
+      "section": "window"
+    },
+    {
+      "id": 4,
+      "capacity": 6,
+      "section": "window"
+    },
+    {
+      "id": 5,
+      "capacity": 4,
+      "section": "center"
+    },
+    {
+      "id": 6,
+      "capacity": 6,
+      "section": "center"
+    },
+    {
+      "id": 7,
+      "capacity": 8,
+      "section": "center"
+    },
+    {
+      "id": 8,
+      "capacity": 4,
+      "section": "center"
+    },
+    {
+      "id": 9,
+      "capacity": 2,
+      "section": "garden"
+    },
+    {
+      "id": 10,
+      "capacity": 4,
+      "section": "garden"
+    },
+    {
+      "id": 11,
+      "capacity": 6,
+      "section": "garden"
+    },
+    {
+      "id": 12,
+      "capacity": 2,
+      "section": "garden"
+    }
+  ],
+  "reservations": [
+    {
+      "id": 1234567890,
+      "firstName": "Jan",
+      "lastName": "Kowalski",
+      "email": "jan@example.com",
+      "phone": "123456789",
+      "date": "2024-12-02",
+      "time": "18:00",
+      "guests": 4,
+      "tableId": 2
+    },
+    {
+      "id": 1234567891,
+      "firstName": "Anna",
+      "lastName": "Nowak",
+      "email": "anna@example.com",
+      "phone": "987654321",
+      "date": "2024-12-02",
+      "time": "20:00",
+      "guests": 2,
+      "tableId": 1
+    },
+    {
+      "id": 1234567892,
+      "firstName": "Piotr",
+      "lastName": "Wiśniewski",
+      "email": "piotr@example.com",
+      "phone": "555666777",
+      "date": "2024-12-02",
+      "time": "20:00",
+      "guests": 6,
+      "tableId": 6
+    },
+    {
+      "id": 1234567893,
+      "firstName": "Maria",
+      "lastName": "Dąbrowska",
+      "email": "maria@example.com",
+      "phone": "111222333",
+      "date": "2024-12-02",
+      "time": "18:00",
+      "guests": 4,
+      "tableId": 5
+    },
+    {
+      "id": 1234567894,
+      "firstName": "Tomasz",
+      "lastName": "Lewandowski",
+      "email": "tomasz@example.com",
+      "phone": "444555666",
+      "date": "2024-12-02",
+      "time": "18:00",
+      "guests": 6,
+      "tableId": 10
+    },
+    {
+      "id": 1732456466854,
+      "firstName": "Dawid",
+      "lastName": "Zyś",
+      "email": "zys.dawid@gmail.com",
+      "phone": "324324543",
+      "date": "2024-12-02",
+      "time": "14:00",
+      "guests": 8,
+      "tableId": 7
+    }
+  ]
+}
