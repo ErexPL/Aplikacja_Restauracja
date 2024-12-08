@@ -1,13 +1,95 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <title>Lista Rezerwacji</title>
+    <title>Lista Rezerwacji - Luminaire</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/extra.css">
+    <link rel="stylesheet" href="/css/reservations.css">
 </head>
 <body>
-    <h1>Lista Rezerwacji</h1>
-    <p>Witaj w liście rezerwacji.</p>
-    <a href="/login">
-        <button>Powrót do Nawigacji</button>
-    </a>
+    <header>
+        <img src="/img/logo.jpg" alt="Luminaire Logo" class="logo">
+        <h1>Luminaire</h1>
+    </header>
+    <div class="back-button-container">
+        <a href="/login" class="back-button">Powrót</a>
+    </div>
+    <div class="container">
+        <div class="reservations-container">
+            <div class="reservations-header">
+                <h1>Dzisiejsze Rezerwacje</h1>
+                <div class="today-date">
+                    <%= new Date().toLocaleDateString('pl-PL', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) %>
+                </div>
+            </div>
+            
+            <% if (reservations.length === 0) { %>
+                <div class="no-reservations">
+                    Brak rezerwacji na dzisiaj
+                </div>
+            <% } else { %>
+                <% 
+                const timeGroups = {};
+                reservations.forEach(reservation => {
+                    if (!timeGroups[reservation.time]) {
+                        timeGroups[reservation.time] = [];
+                    }
+                    timeGroups[reservation.time].push(reservation);
+                });
+                %>
+                
+                <% Object.entries(timeGroups).sort().forEach(([time, timeReservations]) => { %>
+                    <div class="time-section">
+                        <h2 class="time-header"><%= time %></h2>
+                        <div class="reservations-grid">
+                            <% timeReservations.forEach(reservation => { %>
+                                <div class="reservation-card">
+                                    <div class="table-info">
+                                        <div class="table-number">Stolik <%= reservation.tableId %></div>
+                                        <div class="guests-number"><%= reservation.guests %> os.</div>
+                                    </div>
+                                    <div class="guest-info">
+                                        <div class="guest-name"><%= reservation.firstName %> <%= reservation.lastName %></div>
+                                        <div class="contact-info">
+                                            <div>📞 <%= reservation.phone %></div>
+                                            <div>✉️ <%= reservation.email %></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% }); %>
+                        </div>
+                    </div>
+                <% }); %>
+            <% } %>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Luminaire</h3>
+                <p>Restauracja Luminaire to wyjątkowe miejsce w sercu Warszawy, gdzie tradycyjna kuchnia spotyka się z nowoczesnymi inspiracjami.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Kontakt</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📍</span>
+                        ul. Przykładowa 123, 00-000 Warszawa
+                    </div>
+                    <div class="contact-item">
+                        <span>📞</span>
+                        +48 123 456 789
+                    </div>
+                    <div class="contact-item">
+                        <span>✉️</span>
+                        kontakt@luminaire.pl
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Luminaire. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
 </body>
 </html>

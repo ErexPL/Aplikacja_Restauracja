@@ -1,0 +1,119 @@
+.reservations-container {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.reservations-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e74c3c;
+}
+
+.today-date {
+    color: #666;
+    font-size: 1.2em;
+}
+
+.reservations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.time-section {
+    margin-bottom: 30px;
+}
+
+.time-header {
+    color: #c0392b;
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.reservation-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid #c0392b;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reservation-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.table-number {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.guests-number {
+    background: #f39c12;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.9em;
+}
+
+.guest-info {
+    margin-bottom: 15px;
+}
+
+.guest-name {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #34495e;
+    margin-bottom: 5px;
+}
+
+.contact-info {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.contact-info div {
+    margin: 3px 0;
+}
+
+.no-reservations {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-size: 1.2em;
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 768px) {
+    .reservations-container {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .reservations-header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}

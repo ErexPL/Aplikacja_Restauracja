@@ -118,11 +118,20 @@ app.post('/verify', (req, res) => {
 });
 
 app.get('/reservations', (req, res) => {
-    if (req.session.loggedIn) {
-        res.render('reservations');
-    } else {
-        res.redirect('/');
+    if (!req.session.loggedIn) {
+        return res.redirect('/');
     }
+
+    const db = readDB();
+    const today = new Date().toISOString().split('T')[0];
+    
+    const todayReservations = db.reservations
+        .filter(r => r.date === today)
+        .sort((a, b) => a.time.localeCompare(b.time));
+
+    res.render('reservations', { 
+        reservations: todayReservations
+    });
 });
 
 app.get('/admin', (req, res) => {
