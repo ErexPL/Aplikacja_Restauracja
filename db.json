@@ -82,7 +82,7 @@
       "lastName": "Kowalski",
       "email": "jan@example.com",
       "phone": "123456789",
-      "date": "2024-12-08",
+      "date": "2024-12-09",
       "time": "18:00",
       "guests": 4,
       "tableId": 2
@@ -93,7 +93,7 @@
       "lastName": "Nowak",
       "email": "anna@example.com",
       "phone": "987654321",
-      "date": "2024-12-08",
+      "date": "2024-12-09",
       "time": "20:00",
       "guests": 2,
       "tableId": 1
@@ -104,7 +104,7 @@
       "lastName": "Wiśniewski",
       "email": "piotr@example.com",
       "phone": "555666777",
-      "date": "2024-12-08",
+      "date": "2024-12-09",
       "time": "20:00",
       "guests": 6,
       "tableId": 6
@@ -115,7 +115,7 @@
       "lastName": "Dąbrowska",
       "email": "maria@example.com",
       "phone": "111222333",
-      "date": "2024-12-08",
+      "date": "2024-12-09",
       "time": "18:00",
       "guests": 4,
       "tableId": 5
@@ -126,7 +126,7 @@
       "lastName": "Lewandowski",
       "email": "tomasz@example.com",
       "phone": "444555666",
-      "date": "2024-12-08",
+      "date": "2024-12-09",
       "time": "18:00",
       "guests": 6,
       "tableId": 10
@@ -137,10 +137,14 @@
       "lastName": "Zyś",
       "email": "zys.dawid@gmail.com",
       "phone": "324324543",
-      "date": "2024-12-08",
+      "date": "2024-12-09",
       "time": "14:00",
       "guests": 8,
       "tableId": 7
     }
+  ],
+  "blockedDates": [
+    "2024-11-12",
+    "2024-12-09"
   ]
 }

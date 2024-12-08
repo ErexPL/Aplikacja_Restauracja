@@ -1,13 +1,125 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <title>Panel Admina</title>
+    <title>Panel Admina - Luminaire</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/extra.css">
+    <link rel="stylesheet" href="/css/admin.css">
 </head>
 <body>
-    <h1>Panel Admina</h1>
-    <p>Witaj w panelu admina.</p>
-    <a href="/login">
-        <button>Powrót do Nawigacji</button>
-    </a>
+    <header>
+        <a class="logo-container" href="/">
+            <img src="/img/logo.jpg" alt="Luminaire Logo" class="logo">
+            <h1>Luminaire</h1>
+        </a>
+    </header>
+    
+    <div class="back-button-container">
+        <a href="/login" class="back-button">Powrót</a>
+    </div>
+
+    <div class="container">
+        <div class="admin-content">
+            <div class="admin-section">
+                <div class="section-header">
+                    <h2>Dodaj Pracownika</h2>
+                </div>
+                <form action="/admin/add-employee" method="POST" class="admin-form">
+                    <div class="form-group">
+                        <label for="firstName">Imię:</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Nazwisko:</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <button type="submit">Dodaj</button>
+                </form>
+            </div>
+
+            <div class="admin-section">
+                <div class="section-header">
+                    <h2>Lista Pracowników</h2>
+                </div>
+                <ul class="employee-list">
+                    <% employees.forEach(employee => { %>
+                        <li class="employee-item">
+                            <div class="employee-info">
+                                <span class="employee-name"><%= employee.firstName %> <%= employee.lastName %></span>
+                                <span class="employee-email"><%= employee.email %></span>
+                            </div>
+                            <form action="/admin/remove-employee" method="POST" style="display: inline;">
+                                <input type="hidden" name="email" value="<%= employee.email %>">
+                                <button type="submit" class="delete-button" aria-label="Usuń pracownika">×</button>
+                            </form>
+                        </li>
+                    <% }); %>
+                </ul>
+            </div>
+
+            <div class="admin-section date-management">
+                <div class="date-block">
+                    <div class="section-header">
+                        <h2>Zablokuj Datę</h2>
+                    </div>
+                    <form action="/admin/block-date" method="POST" class="admin-form">
+                        <div class="form-group">
+                            <label for="date">Data:</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        <button type="submit">Zablokuj</button>
+                    </form>
+                </div>
+                
+                <div class="date-list-section">
+                    <div class="section-header">
+                        <h2>Zablokowane Daty</h2>
+                    </div>
+                    <ul class="date-list">
+                        <% blockedDates.forEach(date => { %>
+                            <li class="date-item">
+                                <span><%= date %></span>
+                                <form action="/admin/unblock-date" method="POST" style="display: inline;">
+                                    <input type="hidden" name="date" value="<%= date %>">
+                                    <button type="submit" class="delete-button" aria-label="Usuń datę">×</button>
+                                </form>
+                            </li>
+                        <% }); %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>O Nas</h3>
+                <p>Luminaire to wyjątkowa restauracja, która łączy w sobie tradycję z nowoczesnością. Nasze dania przygotowywane są z najwyższej jakości składników, aby zapewnić naszym gościom niezapomniane doświadczenia kulinarne.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Kontakt</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📍</span> ul. Przykładowa 123, Warszawa
+                    </div>
+                    <div class="contact-item">
+                        <span>📞</span> +48 123 456 789
+                    </div>
+                    <div class="contact-item">
+                        <span>✉️</span> kontakt@luminaire.pl
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Luminaire. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+    <script src="/js/admin.js"></script>
 </body>
 </html>

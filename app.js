@@ -135,11 +135,11 @@ app.get('/reservations', (req, res) => {
 });
 
 app.get('/admin', (req, res) => {
-    if (req.session.loggedIn) {
-        res.render('admin');
-    } else {
-        res.redirect('/');
-    }
+    const db = readDB();
+    res.render('admin', {
+        employees: db.employees || [],
+        blockedDates: db.blockedDates || []
+    });
 });
 
 app.get('/reservation-form', (req, res) => {
@@ -187,6 +187,10 @@ app.post('/make-reservation', (req, res) => {
 
         if (!table || isTableBooked || table.capacity < parseInt(guests)) {
             throw new Error('Wybrany stolik nie jest już dostępny');
+        }
+
+        if (db.blockedDates.includes(date)) {
+            throw new Error('Wybrana data jest niedostępna.');
         }
 
         const newReservation = {
@@ -238,6 +242,55 @@ app.post('/make-reservation', (req, res) => {
             </script>
         `);
     }
+});
+
+app.post('/admin/add-employee', (req, res) => {
+    const { firstName, lastName, email } = req.body;
+    const db = readDB();
+
+    const newEmployee = {
+        id: db.employees.length + 1,
+        firstName,
+        lastName,
+        email
+    };
+
+    db.employees.push(newEmployee);
+    fs.writeFileSync('db.json', JSON.stringify(db, null, 2));
+    res.redirect('/admin');
+});
+
+app.post('/admin/remove-employee', (req, res) => {
+    const { email } = req.body;
+    const db = readDB();
+
+    db.employees = db.employees.filter(emp => emp.email !== email);
+    fs.writeFileSync('db.json', JSON.stringify(db, null, 2));
+    res.redirect('/admin');
+});
+
+app.post('/admin/block-date', (req, res) => {
+    const { date } = req.body;
+    const db = readDB();
+
+    if (!db.blockedDates) {
+        db.blockedDates = [];
+    }
+
+    if (!db.blockedDates.includes(date)) {
+        db.blockedDates.push(date);
+        fs.writeFileSync('db.json', JSON.stringify(db, null, 2));
+    }
+    res.redirect('/admin');
+});
+
+app.post('/admin/unblock-date', (req, res) => {
+    const { date } = req.body;
+    const db = readDB();
+
+    db.blockedDates = db.blockedDates.filter(d => d !== date);
+    fs.writeFileSync('db.json', JSON.stringify(db, null, 2));
+    res.redirect('/admin');
 });
 
 app.listen(PORT, () => {
