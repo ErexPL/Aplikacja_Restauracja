@@ -37,13 +37,21 @@
     border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
-    transition: transform 0.3s ease;
+    transition: all 0.32s;
 }
 
 .btn:hover {
     transform: translateY(-3px);
-}
 
+}
+.btn-first:hover{
+    box-shadow: 0 4px 15px rgba(235, 63, 63, 0.73);
+
+}
+.btn-secondary:hover{
+    background-color: #fff;
+    color: rgb(30, 30, 30);
+}
 .btn {
     background-color: #c0392b;
     color: white;
@@ -101,6 +109,7 @@
 }
 
 .gallery-item {
+    filter: brightness(0.6);
     position: relative;
     border-radius: 15px;
     overflow: hidden;
@@ -120,13 +129,18 @@
     object-fit: cover;
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
+.gallery-item:hover{
+    filter: brightness(1);
+}
 .gallery-item:hover img {
     transform: scale(1.1);
 }
 
 .gallery-item .overlay {
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
     bottom: 0;
     left: 0;
     right: 0;
@@ -145,7 +159,7 @@
 
 .overlay h3 {
     font-size: 24px;
-    margin: 0 0 8px 0;
+    margin: 0;
     font-weight: 600;
 }
 
@@ -154,7 +168,11 @@
     margin: 0;
     opacity: 0.9;
 }
-
+.overlay .line{
+    height: 2px;
+    width: 250px;
+    background-color: #c0392b;
+}
 @media (max-width: 1024px) {
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
