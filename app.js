@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
 
 app.get('/login', (req, res) => {
     if (req.session.loggedIn) {
-        res.render('nav');
+        res.render('nav', { employee: req.session.employee });
     } else {
         res.render('login');
     }
@@ -135,6 +135,15 @@ app.get('/reservations', (req, res) => {
 });
 
 app.get('/admin', (req, res) => {
+    if (!req.session.loggedIn || !req.session.employee || req.session.employee.email !== 'zys.dawid@gmail.com') {
+        return res.send(`
+            <script>
+                alert('Nie masz uprawnień do dostępu do panelu administratora.');
+                window.location.href = '/login';
+            </script>
+        `);
+    }
+
     const db = readDB();
     res.render('admin', {
         employees: db.employees || [],
