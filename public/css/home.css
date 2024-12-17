@@ -44,14 +44,17 @@
     transform: translateY(-3px);
 
 }
+
 .btn-first:hover{
     box-shadow: 0 4px 15px rgba(235, 63, 63, 0.73);
 
 }
+
 .btn-secondary:hover{
     background-color: #fff;
     color: rgb(30, 30, 30);
 }
+
 .btn {
     background-color: #c0392b;
     color: white;
@@ -129,9 +132,11 @@
     object-fit: cover;
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .gallery-item:hover{
     filter: brightness(1);
 }
+
 .gallery-item:hover img {
     transform: scale(1.1);
 }
@@ -168,11 +173,13 @@
     margin: 0;
     opacity: 0.9;
 }
+
 .overlay .line{
     height: 2px;
     width: 250px;
     background-color: #c0392b;
 }
+
 @media (max-width: 1024px) {
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -193,12 +200,6 @@
     .gallery h2 {
         font-size: 28px;
     }
-}
-
-.container {
-    min-height: 100vh;
-    height: auto;
-    overflow-y: auto;
 }
 
 footer {
